@@ -1,0 +1,225 @@
+/* Styles for the dev sniper extension */
+
+/* Dev snipe button styles */
+.dev-snipe-btn {
+    background: #ef4444 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    margin-left: 5px !important;
+    transition: all 0.2s ease !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.dev-snipe-btn:hover {
+    background: #dc2626 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+.dev-snipe-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Active state - when monitoring */
+.dev-snipe-btn.monitoring {
+    background: #10b981 !important;
+    animation: pulse-green 2s infinite !important;
+}
+
+.dev-snipe-btn.monitoring:hover {
+    background: #059669 !important;
+}
+
+/* Triggered state - when buy order executed */
+.dev-snipe-btn.triggered {
+    background: #f59e0b !important;
+    animation: flash-yellow 0.5s ease-in-out 3 !important;
+}
+
+/* Sniper indicator styles */
+#sniper-indicator {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    z-index: 10000 !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    animation: pulse-glow 3s infinite !important;
+}
+
+/* Notification styles for in-page notifications */
+.sniper-notification {
+    position: fixed !important;
+    top: 50px !important;
+    right: 10px !important;
+    max-width: 300px !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    z-index: 9999 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    animation: slideIn 0.3s ease-out !important;
+}
+
+.sniper-notification.success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.sniper-notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.sniper-notification.warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Monitoring overlay for pairs being watched */
+.pair-monitoring-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 2px solid #10b981 !important;
+    border-radius: 6px !important;
+    pointer-events: none !important;
+    animation: monitoring-pulse 2s infinite !important;
+}
+
+/* Loading spinner for buttons */
+.btn-spinner {
+    display: inline-block !important;
+    width: 12px !important;
+    height: 12px !important;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    border-radius: 50% !important;
+    border-top-color: white !important;
+    animation: spin 1s ease-in-out infinite !important;
+    margin-right: 5px !important;
+}
+
+/* Animations */
+@keyframes pulse-green {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes flash-yellow {
+    0%, 100% {
+        background: #f59e0b !important;
+    }
+    50% {
+        background: #fbbf24 !important;
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.6);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes monitoring-pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #sniper-indicator {
+        top: 5px !important;
+        right: 5px !important;
+        padding: 6px 12px !important;
+        font-size: 11px !important;
+    }
+    
+    .sniper-notification {
+        top: 40px !important;
+        right: 5px !important;
+        max-width: 250px !important;
+        font-size: 12px !important;
+    }
+    
+    .dev-snipe-btn {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    .sniper-notification {
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    #sniper-indicator {
+        backdrop-filter: blur(20px) !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .dev-snipe-btn {
+        border: 2px solid white !important;
+    }
+    
+    .dev-snipe-btn.monitoring {
+        border-color: #ffffff !important;
+    }
+    
+    .dev-snipe-btn.triggered {
+        border-color: #000000 !important;
+    }
+}

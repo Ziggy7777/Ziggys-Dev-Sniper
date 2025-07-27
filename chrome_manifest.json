@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Axiom Dev Sniper",
+  "version": "1.0.0",
+  "description": "Automated trading tool for Axiom - executes buy orders when dev wallet sells",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://axiom.trade/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://axiom.trade/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Axiom Dev Sniper"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://axiom.trade/*"]
+    }
+  ]
+}

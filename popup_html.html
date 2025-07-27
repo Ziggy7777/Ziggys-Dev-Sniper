@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 350px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .status.connected {
+            background: #10b981;
+            color: #ffffff;
+        }
+        .status.disconnected {
+            background: #ef4444;
+            color: #ffffff;
+        }
+        .wallet-section {
+            margin-bottom: 20px;
+        }
+        .wallet-info {
+            background: #2d2d2d;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            word-break: break-all;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #cccccc;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #2d2d2d;
+            color: #ffffff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+        .connect-btn {
+            background: #8b5cf6;
+            color: white;
+        }
+        .connect-btn:hover {
+            background: #7c3aed;
+        }
+        .disconnect-btn {
+            background: #ef4444;
+            color: white;
+        }
+        .toggle-btn {
+            background: #10b981;
+            color: white;
+        }
+        .toggle-btn.inactive {
+            background: #6b7280;
+        }
+        .footer {
+            font-size: 10px;
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .warning {
+            background: #f59e0b;
+            color: #000;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Axiom Dev Sniper</h2>
+    </div>
+
+    <div id="wallet-status" class="status disconnected">
+        Wallet Disconnected
+    </div>
+
+    <div class="wallet-section">
+        <button id="connect-wallet" class="connect-btn">Connect Phantom Wallet</button>
+        <button id="disconnect-wallet" class="disconnect-btn" style="display: none;">Disconnect</button>
+        
+        <div id="wallet-info" class="wallet-info" style="display: none;">
+            <div>Address: <span id="wallet-address"></span></div>
+            <div>Balance: <span id="wallet-balance">0</span> SOL</div>
+        </div>
+    </div>
+
+    <div class="warning">
+        ⚠️ This tool executes trades automatically. Only use with funds you can afford to lose.
+    </div>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="sell-threshold">Dev Sell Threshold (%)</label>
+            <input type="number" id="sell-threshold" value="10" min="1" max="100" step="1">
+        </div>
+
+        <div class="control-group">
+            <label for="buy-amount">Buy Amount (SOL)</label>
+            <input type="number" id="buy-amount" value="0.1" min="0.01" step="0.01">
+        </div>
+
+        <div class="control-group">
+            <label for="slippage">Slippage Tolerance (%)</label>
+            <select id="slippage">
+                <option value="5">5%</option>
+                <option value="10" selected>10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+            </select>
+        </div>
+    </div>
+
+    <button id="toggle-sniper" class="toggle-btn inactive">
+        Start Dev Sniping
+    </button>
+
+    <div class="footer">
+        Open source • Trade responsibly • DYOR
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
