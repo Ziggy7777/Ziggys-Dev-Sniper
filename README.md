@@ -13,3 +13,6 @@ Set your parameters (sell threshold %, buy amount, slippage)
 Click the red dev snipe button on any trading pair you're watching
 The tool monitors the dev wallet and automatically buys when they sell X% of their holdings
 Profit? (hopefully)
+
+ Use it, break it, fix it, whatever. Just don't blame me when your trades go wrong.
+Remember: This tool is for educational purposes and personal use. Trade responsibly and never risk more than you can afford to lose. NFA (Not Financial Advice).
